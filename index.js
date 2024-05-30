@@ -102,8 +102,8 @@ let ucetambolunenler,
 
 // 3a çözümü
 
-enbuyuk = sayilar
-enkucuk = sayilar[0];
+const enbuyuk = sayilar[0];
+const enkucuk = sayilar[0];
 
 for (let i = 1; i < sayilar.length; i++) {
   if (sayilar[i] > enbuyuk) {
