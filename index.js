@@ -102,8 +102,8 @@ let ucetambolunenler,
 
 // 3a çözümü
 
-let enbuyuk = sayilar[0];
-let enkucuk = sayilar[0];
+enbuyuk = sayilar
+enkucuk = sayilar[0];
 
 for (let i = 1; i < sayilar.length; i++) {
   if (sayilar[i] > enbuyuk) {
@@ -129,13 +129,13 @@ console.log(ucetambolunenler);
 
 // 3c çözümü:
 
-const ucebolunenlerintoplami = ucetambolunenler.reduce((toplam, sayi) => toplam + sayi, 0);
+ucebolunenlerintoplami = ucetambolunenler.reduce((toplam, sayi) => toplam + sayi, 0);
 
 console.log(ucebolunenlerintoplami);
 
 // 3d çözümü
 
-const besyuzdenkucuksayilar = sayilar.filter(sayi => sayi < 500);
+besyuzdenkucuksayilar = sayilar.filter(sayi => sayi < 500);
 
 console.log(besyuzdenkucuksayilar);
 
