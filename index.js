@@ -102,8 +102,8 @@ let ucetambolunenler,
 
 // 3a çözümü
 
-const enbuyuk = sayilar[0];
-const enkucuk = sayilar[0];
+ enbuyuk = sayilar[0];
+ enkucuk = sayilar[0];
 
 for (let i = 1; i < sayilar.length; i++) {
   if (sayilar[i] > enbuyuk) {
@@ -129,13 +129,17 @@ console.log(ucetambolunenler);
 
 // 3c çözümü:
 
-ucebolunenlerintoplami = ucetambolunenler.reduce((toplam, sayi) => toplam + sayi, 0);
+ucebolunenlerintoplami = ucetambolunenler.reduce(function(toplam, sayi) {
+  return toplam + sayi;
+}, 0);
 
 console.log(ucebolunenlerintoplami);
 
 // 3d çözümü
 
-besyuzdenkucuksayilar = sayilar.filter(sayi => sayi < 500);
+besyuzdenkucuksayilar = sayilar.filter(function(sayi) {
+  return sayi < 500;
+});
 
 console.log(besyuzdenkucuksayilar);
 
@@ -143,20 +147,29 @@ console.log(besyuzdenkucuksayilar);
 
 // 3e çözümü
 
-const siralisayilar = [...besyuzdenkucuksayilar].sort((a, b) => a - b);
+siralisayilar = besyuzdenkucuksayilar.slice().sort(function(a, b) {
+  return a - b;
+});
 
 console.log(siralisayilar);
 
 // 3f çözümü
 
-const sayiFrekanslari = sayilar.reduce((acc, sayi) => {
-  acc[sayi] = (acc[sayi] || 0) + 1;
-  return acc;
-}, {});
+let sayiFrekanslari = {};
+sayilar.forEach(function(sayi) {
+  if (sayiFrekanslari[sayi]) {
+    sayiFrekanslari[sayi]++;
+  } else {
+    sayiFrekanslari[sayi] = 1;
+  }
+});
 
-const tekraredensayilar = Object.entries(sayiFrekanslari)
-  .filter(([, frekans]) => frekans > 1)
-  .map(([sayi, frekans]) => `${sayi} sayısı ${frekans} kere tekrar edilmiştir`);
+tekraredensayilar = [];
+for (let sayi in sayiFrekanslari) {
+  if (sayiFrekanslari[sayi] > 1) {
+    tekraredensayilar.push(`${sayi} sayısı ${sayiFrekanslari[sayi]} kere tekrar edilmiştir`);
+  }
+}
 
 console.log(tekraredensayilar);
 
