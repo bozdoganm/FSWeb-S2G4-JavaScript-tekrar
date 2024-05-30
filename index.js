@@ -65,9 +65,8 @@ console.log(CemberinCevresi(5));
 	3. Çemberin alanı hesaplanacaktır (💡 İPUCU: Çemberin alanı = pi * yarıçapın karesi, yarıçapın karesini bulmak için Javascript içinde tanımlı Math kütüphanesini kullanabilirsiniz. Math.pow(yaricap,2))
 	4. Hesaplanan çemberin alanı döndürülecektir.
 */
-
 function CemberinAlani(yaricap, pi) {
-  return pi * Math.pow(yaricap, 2);
+  return pi * (yaricap ** 2);
 }
 
 console.log(CemberinAlani(15, pi));
