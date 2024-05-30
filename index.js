@@ -129,25 +129,21 @@ console.log(ucetambolunenler);
 
 // 3c çözümü:
 
-ucebolunenlerintoplami = ucetambolunenler.reduce(function(toplam, sayi) {
-  return toplam + sayi;
-}, 0);
+const ucebolunenlerintoplami = ucetambolunenler.reduce((toplam, sayi) => toplam + sayi, 0);
 
 console.log(ucebolunenlerintoplami);
 
 // 3d çözümü
 
-besyuzdenkucuksayilar = sayilar.filter(function(sayi) {
-  return sayi < 500;
-});
+const besyuzdenkucuksayilar = sayilar.filter(sayi => sayi < 500);
 
 console.log(besyuzdenkucuksayilar);
 
+
+
 // 3e çözümü
 
-siralisayilar = besyuzdenkucuksayilar.slice().sort(function(a, b) {
-  return a - b;
-});
+const siralisayilar = [...besyuzdenkucuksayilar].sort((a, b) => a - b);
 
 console.log(siralisayilar);
 
