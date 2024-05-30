@@ -149,21 +149,14 @@ console.log(siralisayilar);
 
 // 3f çözümü
 
-let sayiFrekanslari = {};
-sayilar.forEach(function(sayi) {
-  if (sayiFrekanslari[sayi]) {
-    sayiFrekanslari[sayi]++;
-  } else {
-    sayiFrekanslari[sayi] = 1;
-  }
-});
+const sayiFrekanslari = sayilar.reduce((acc, sayi) => {
+  acc[sayi] = (acc[sayi] || 0) + 1;
+  return acc;
+}, {});
 
-tekraredensayilar = [];
-for (let sayi in sayiFrekanslari) {
-  if (sayiFrekanslari[sayi] > 1) {
-    tekraredensayilar.push(`${sayi} sayısı ${sayiFrekanslari[sayi]} kere tekrar edilmiştir`);
-  }
-}
+const tekraredensayilar = Object.entries(sayiFrekanslari)
+  .filter(([, frekans]) => frekans > 1)
+  .map(([sayi, frekans]) => `${sayi} sayısı ${frekans} kere tekrar edilmiştir`);
 
 console.log(tekraredensayilar);
 
